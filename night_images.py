@@ -88,9 +88,9 @@ class illuminate():
 
         # cv2.imshow("sapm", ig)
         def starter(self, ig):
-            print("sample:    ", type(ig))
-            # im = cv2.imread(ig)
-            im = Image.fromarray(ig)
+            
+            im = np.array(ig)
+            im = Image.fromarray(im)
             orig = im.copy()
 
             tmin = 0.1  
@@ -106,9 +106,9 @@ class illuminate():
             f_enhanced = self.dehaze(I, tmin, w, alpha, omega, p, eps)
             f_enhanced2 = self.dehaze(I, tmin, w, alpha, omega, p, eps, True)
             
-            cv2.imwrite(f"f2{I[3,4,2]}.jpg", f_enhanced2)
-            
-            return f_enhanced2
+            # cv2.imwrite(f"f2{I[3,4,2]}.jpg", f_enhanced2)
+            print("sample:    ", type(f_enhanced2))
+            return Image.fromarray(f_enhanced2)
             
         
         
